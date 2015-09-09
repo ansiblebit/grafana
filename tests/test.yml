@@ -7,4 +7,4 @@
 
   roles:
     - { role: tests,
-        when: idempotence is defined and idempotence }
+        tags: test }
