@@ -69,10 +69,6 @@ is always nice for users too:
       roles:
          - { role: username.rolename, x: 42 }
 
-## Changelog
-
-- vx.y.z : day month year
-    - the change
 
 ## Links
 
