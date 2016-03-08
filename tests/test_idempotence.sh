@@ -3,7 +3,7 @@
 #
 # Bash script to run idempotence tests.
 #
-# version: 1.4
+# version: 1.5
 #
 # usage:
 #
@@ -29,6 +29,9 @@
 #
 # changelog:
 #
+#   v1.5 :  8 Mar 2016
+#     - pass vagrant_box variable to playbook
+#     - default inventory changed from localhost to match what Vagrant provisioner generates
 #   v1.4 : 10 Jul 2015
 #     - added extra variables to force running idempotence tests on vagrant
 #   v1.2
