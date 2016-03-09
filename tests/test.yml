@@ -2,9 +2,9 @@
 # file: primogen/tests/test.yml
 
 - name: tests play
-  hosts: all
+  hosts: "{{ vagrant_box }}"
   gather_facts: yes
 
   roles:
-    - { role: tests,
-        tags: test }
+    - role: tests,
+      tags: test
