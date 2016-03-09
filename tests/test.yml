@@ -5,6 +5,9 @@
   hosts: "{{ vagrant_box }}"
   gather_facts: yes
 
+  vars:
+    debug: true
+
   roles:
     - role: tests
       tags: test
