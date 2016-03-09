@@ -6,5 +6,5 @@
   gather_facts: yes
 
   roles:
-    - role: tests,
+    - role: tests
       tags: test
