@@ -23,7 +23,7 @@
 #
 #   # on a Vagrant box
 #   bash test_idempotence.sh \
-#       --box precise64.vagrant.dev
+#       --box precise64.vagrant.dev \
 #       --inventory .vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
 #
 #
