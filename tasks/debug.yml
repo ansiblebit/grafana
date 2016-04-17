@@ -1,0 +1,12 @@
+---
+# file: tasks/debug.yml
+#
+# debug tasks.
+#
+
+- debug:
+    var="{{ item }}"
+  when: "{{ item }} is defined"
+  with_items:
+    - debug
+

@@ -4,6 +4,13 @@
 # tasks file
 #
 
+- include: debug.yml
+  when: debug | default(false)
+  tags: debug
+
+- include: validation.yml
+  tags: validation
+
 - debug: >
     msg="invoked"
 
