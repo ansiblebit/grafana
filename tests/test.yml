@@ -4,8 +4,6 @@
 - name: tests play
   hosts: "{{ vagrant_box }}"
   gather_facts: yes
-  vars:
-    debug: yes
 
   vars:
     debug: true
