@@ -6,7 +6,7 @@
   gather_facts: yes
 
   vars:
-    debug: true
+    debug: yes
 
   roles:
     - role: primogen
