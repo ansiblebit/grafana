@@ -23,6 +23,8 @@
 #
 # #################
 
+test $USER != 'travis' || exit 0
+
 set -e
 
 ansible-playbook \
