@@ -23,7 +23,7 @@
 #
 # #################
 
-test $USER != 'travis' || exit 0
+test $USER != 'travis' && exit 0
 
 set -e
 

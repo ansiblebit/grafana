@@ -16,6 +16,9 @@
 #
 # changelog:
 #
+#   v1.6 : 10 Jun 2016
+#     - exit if USER environment variable is travis
+#
 #   v1.4 : 10 Jul 2015
 #     - remove environment variable ANSIBLE_ASK_SUDO_PASS
 #
@@ -23,6 +26,8 @@
 #   - Pedro Salgado <steenzout@ymail.com>
 #
 # #################
+
+test $USER == 'travis' && exit 0
 
 DIR="$(dirname "$0")"
 
