@@ -121,6 +121,31 @@ vagrant:
         memory: 1024
         cpus: 1
 
+  fedora23-atomic.vagrant.dev:
+    enabled: false
+    box: fedora/23-atomic-host
+    network:
+      name: private_network
+      ip: 192.168.123.5
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  fedora23-cloud.vagrant.dev:
+    enabled: false
+    box: fedora/23-cloud-base
+    network:
+      name: private_network
+      ip: 192.168.123.6
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+
   # Ubuntu
 
   precise32.vagrant.dev:
