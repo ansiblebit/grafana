@@ -121,6 +121,31 @@ vagrant:
         memory: 1024
         cpus: 1
 
+  fedora23-atomic.vagrant.dev:
+    enabled: false
+    box: fedora/23-atomic-host
+    network:
+      name: private_network
+      ip: 192.168.123.5
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  fedora23-cloud.vagrant.dev:
+    enabled: false
+    box: fedora/23-cloud-base
+    network:
+      name: private_network
+      ip: 192.168.123.6
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+
   # Ubuntu
 
   precise32.vagrant.dev:
@@ -189,6 +214,42 @@ vagrant:
     network:
       name: private_network
       ip: 192.168.124.6
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  wily64.vagrant.dev:
+    enabled: true
+    box: ubuntu/wily64
+    network:
+      name: private_network
+      ip: 192.168.124.7
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  xenial64.vagrant.dev:
+    enabled: true
+    box: ubuntu/xenial64
+    network:
+      name: private_network
+      ip: 192.168.124.8
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  yakkety64.vagrant.dev:
+    enabled: true
+    box: ubuntu/yakkety64
+    network:
+      name: private_network
+      ip: 192.168.124.9
 
     provider:
       virtualbox:
