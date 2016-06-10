@@ -1,4 +1,27 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# #################
+#
+# Bash script to run tests in the travis-ci environment.
+#
+# version: 1.0
+#
+# usage:
+#
+#   travis.sh
+#
+# example:
+#
+#   bash travis.sh
+#
+# changelog:
+#
+#   v1.0 :  10 June 2016
+#     - initial version
+#
+# author(s):
+#   - Pedro Salgado <steenzout@ymail.com>
+#
+# #################
 
 test $USER = 'travis' \
     && ansible-playbook \
