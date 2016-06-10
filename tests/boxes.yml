@@ -219,3 +219,39 @@ vagrant:
       virtualbox:
         memory: 1024
         cpus: 1
+
+  wily64.vagrant.dev:
+    enabled: true
+    box: ubuntu/wily64
+    network:
+      name: private_network
+      ip: 192.168.124.7
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  xenial64.vagrant.dev:
+    enabled: true
+    box: ubuntu/xenial64
+    network:
+      name: private_network
+      ip: 192.168.124.8
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
+
+  yakkety64.vagrant.dev:
+    enabled: true
+    box: ubuntu/yakkety64
+    network:
+      name: private_network
+      ip: 192.168.124.9
+
+    provider:
+      virtualbox:
+        memory: 1024
+        cpus: 1
