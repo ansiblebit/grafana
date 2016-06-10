@@ -3,13 +3,12 @@ sudo: yes
 
 matrix:
   include:
-    - python: 2.7
-      env: TOXENV=py27-ansible194
-    - python: 2.7
-      env: TOXENV=py27-ansible2010
+    - env: TOXENV=py27-ansible21
+    - env: TOXENV=py27-ansible20
+    - env: TOXENV=py27-ansible19
 
 install:
   - pip install tox
 
 script:
-  - tox -e travis
+  - tox
