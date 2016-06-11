@@ -1,11 +1,13 @@
-language: python
 sudo: yes
 
 matrix:
   include:
-    - env: TOXENV=py27-ansible21
-    - env: TOXENV=py27-ansible20
-    - env: TOXENV=py27-ansible19
+    - python: 2.7
+      env: TOXENV=py27-ansible21
+    - python: 2.7
+      env: TOXENV=py27-ansible20
+    - python: 2.7
+      env: TOXENV=py27-ansible19
 
 install:
   - pip install tox
