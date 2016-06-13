@@ -15,3 +15,14 @@ install:
 
 script:
   - tox
+
+notifications:
+    webhooks: https://galaxy.ansible.com/api/v1/notifications/
+
+before_cache:
+  - rm -f ${HOME}/.cache/pip/log/debug.log
+
+cache:
+  directories:
+    - ${HOME}/.cache/pip
+
