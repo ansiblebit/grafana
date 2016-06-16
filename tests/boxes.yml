@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/vars/main.yml
+# file: primogen/tests/boxes.yml
 #
 
 vagrant:
