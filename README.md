@@ -105,6 +105,7 @@ $ vagrant ssh trusty64.vagrant.dev
 
 ## Links
 
+- [Grafana : Installing on Debian / Ubuntu](http://docs.grafana.org/installation/debian/)
 
 
 ## License
