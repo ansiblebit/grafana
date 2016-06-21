@@ -11,6 +11,7 @@ galaxy_info:
   min_ansible_version: 1.9.6
   platforms:
     - name: Debian
+      versions:
         - wheezy
         - jessie
     - name: Ubuntu
