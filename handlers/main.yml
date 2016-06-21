@@ -8,5 +8,4 @@
   service:
     name=grafana-server
     state=restarted
-    enabled=yes
   become: yes
