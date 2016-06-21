@@ -4,19 +4,19 @@
 # tasks file
 #
 
-- include: debug.yml
-  when: debug | default(false)
-  tags: debug
-
-- include: validation.yml
-  tags: validation
-
 - name: include OS family/distribution specific variables
   include_vars: "{{ item }}"
   with_first_found:
     - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
     - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
     - "../defaults/{{ ansible_os_family | lower }}.yml"
+
+- include: debug.yml
+  when: debug | default(false)
+  tags: debug
+
+- include: validation.yml
+  tags: validation
 
 - name: ensure apt dependencies are installed
   apt:
