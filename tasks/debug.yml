@@ -10,6 +10,8 @@
   with_items:
     - grafana_admin_password
     - grafana_admin_user
+    - grafana_apt_dependencies
+    - grafana_apt_distribution
     - grafana_conf_data
     - grafana_conf_file
     - grafana_default
