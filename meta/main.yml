@@ -10,6 +10,9 @@ galaxy_info:
   license: BSD
   min_ansible_version: 1.9.6
   platforms:
+    - name: Debian
+        - wheezy
+        - jessie
     - name: Ubuntu
       versions:
         - xenial
