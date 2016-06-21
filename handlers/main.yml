@@ -1,5 +1,12 @@
 ---
-# file: primogen/handlers/main.yml
+# file: grafana/handlers/main.yml
 #
 # handlers file
 #
+
+- name: restart grafana
+  service:
+    name=grafana-server
+    state=restarted
+    enabled=yes
+  become: yes

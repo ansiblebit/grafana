@@ -1,0 +1,9 @@
+---
+# file: grafana/defaults/debian-ubuntu.yml
+#
+# Ubuntu variables.
+#
+
+grafana_apt_dependencies: []
+
+grafana_apt_distribution: wheezy

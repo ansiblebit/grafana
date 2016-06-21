@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% for parameter, value in grafana_default.iteritems() %}
+{{ parameter | upper }}={{ value }}
+{% endfor %}

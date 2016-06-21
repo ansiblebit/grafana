@@ -1,5 +1,5 @@
 ---
-# file: primogen/tests/test.yml
+# file: grafana/tests/test.yml
 
 - name: setup python2
   hosts: "{{ vagrant_box }}"
@@ -18,8 +18,10 @@
   vars:
     debug: yes
 
+    grafana_admin_password: admin
+
   roles:
-    - role: primogen
+    - role: grafana
 
     - role: tests
       tags: test

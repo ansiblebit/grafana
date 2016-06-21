@@ -1,73 +1,63 @@
-# Role Name
+# Grafana
 
-[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/primogen/master/LICENSE)
-[![Build Status](https://travis-ci.org/ansiblebit/primogen.svg?branch=master)](https://travis-ci.org/ansiblebit/primogen)
+[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg?style=flat)](https://raw.githubusercontent.com/ansiblebit/grafana/master/LICENSE)
+[![Build Status](https://travis-ci.org/ansiblebit/grafana.svg?branch=master)](https://travis-ci.org/ansiblebit/grafana)
 
-[![Platform](http://img.shields.io/badge/platform-amazon-ff9900.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-debian-a80030.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-centos-932279.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-fedora-3c6eb4.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-freebsd-ae0000.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-macosx-000000.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-mint-87cfbe.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-opensuse-73ba25.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-redhat-cc0000.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-sles-73ba25.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-smartos-487487.svg?style=flat)](#)
 [![Platform](http://img.shields.io/badge/platform-ubuntu-dd4814.svg?style=flat)](#)
-[![Platform](http://img.shields.io/badge/platform-windows-004185.svg?style=flat)](#)
 
-[![Project Stats](https://www.openhub.net/p/ansiblebit-primogen/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-primogen/)
+[![Project Stats](https://www.openhub.net/p/ansiblebit-grafana/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansiblebit-grafana/)
 
-A brief description of the role goes here.
+[Ansible][ansible] role to setup [Grafana][grafana].
+
 
 ## Tests
 
 | Family | Distribution | Version | Test Status |
 |:-:|:-:|:-:|:-:|
-| Debian | Debian  | Jessie  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Debian  | Wheezy  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Ubuntu  | Precise | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#)  |
-| Debian | Ubuntu  | Trusty  | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| Debian | Ubuntu  | Vivid   | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | CentOS  | 6.4     | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | CentOS  | 6.6     | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Centos  | 7       | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Fedora  | 20      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
-| RedHat | Fedora  | 21      | [![x86](http://img.shields.io/badge/x86-n/a-cccccc.svg?style=flat)](#) [![x86_64](http://img.shields.io/badge/x86_64-n/a-cccccc.svg?style=flat)](#) |
+| Debian | Debian  | Jessie  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Debian  | Wheezy  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Ubuntu  | Xenial  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Ubuntu  | Trusty  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Ubuntu  | Precise | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Ubuntu  | Vivid   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here.
-For instance, if the role uses the EC2 module,
-it may be a good idea to mention in this section that the boto package is required.
+- ansible >= 1.9.6
 
-- ansible >= 1.7.2
 
 ## Role Variables
 
-A description of the settable variables for this role should go here,
-including any variables that are in defaults/main.yml, vars/main.yml and
-any variables that can/should be set via parameters to the role.
+- **grafana_admin_password**: password for the [Grafana][grafana] administrator account (mandatory).
+- **grafana_admin_user**: user name for the [Grafana][grafana] administrator account.
+- **grafana_apt_dependencies**: packages needed to be able to run this playbook or install [Grafana][grafana].
+- **grafana_conf_file**: the file that will contain [Grafana][grafana]'s configuration.
+- **grafana_conf_data**: the contents of [Grafana][grafana]'s configuration file.
+- **grafana_default**: the contents of [Grafana][grafana]'s init script environment. 
+- **grafana_dir_conf**: the directory where the [Grafana][grafana] configuration file will be stored.
+- **grafana_dir_data**: the directory where the [Grafana][grafana] data will be stored.
+- **grafana_dir_home**: the [Grafana][grafana] home directory.
+- **grafana_dir_log**: the directory where the [Grafana][grafana] log files will be stored.
+- **grafana_dir_plugins**: the directory where the [Grafana][grafana] plugins will be stored.
+- **grafana_http_port**: the port where the [Grafana][grafana] service will be running.
+- **grafana_group**: the [Grafana][grafana] group.
+- **grafana_user**: the [Grafana][grafana] user.
 
-Any variables that are read from other roles and/or
-the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Unless stated otherwise a default value is provided for each of the variables mentioned above in the `defaults` directory.
+
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here,
-plus any details in regards to parameters that may need to be set for other roles
-or variables that are used from other roles.
+None.
+
 
 ## Playbooks
 
-Including an example of how to use your role
-(for instance, with variables passed in as parameters)
-is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: ansiblebit.grafana
 
 
 ## Tags
@@ -116,11 +106,18 @@ $ vagrant ssh trusty64.vagrant.dev
 ## Links
 
 
+
 ## License
 
-BSD
+[BSD][license]
+
 
 ## Author Information
 
-An optional section for the role authors to include contact information or
-a website (HTML is not allowed).
+- [steenzout][steenzout]
+
+
+[ansible]:      https://www.ansible.com         "Ansible"
+[grafana]:      http://grafana.org              "Grafana"
+[license]:      https://github.com/ansiblebit/grafana/blob/master/LICENSE  "BSD license"
+[steenzout]:    https://github.com/steenzout/   "Pedro Salgado"

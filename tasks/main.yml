@@ -1,5 +1,5 @@
 ---
-# file: primogen/tasks/main.yml
+# file: grafana/tasks/main.yml
 #
 # tasks file
 #
@@ -11,6 +11,85 @@
 - include: validation.yml
   tags: validation
 
-- debug: >
-    msg="invoked"
+- name: include OS family/distribution specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}_{{ ansible_distribution_version | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
+    - "../defaults/{{ ansible_os_family | lower }}.yml"
 
+- name: ensure apt dependencies are installed
+  apt:
+    name="{{ item }}"
+    state=present
+  become: yes
+  when: ansible_distribution | lower == 'debian' and grafana_apt_dependencies is defined
+  with_items: "{{ grafana_apt_dependencies }}"
+
+- name: ensure grafana apt key is present
+  apt_key:
+    url=https://packagecloud.io/gpg.key
+    id=D59097AB
+    state=present
+  become: yes
+  tags: [ apt ]
+
+- name: ensure grafana apt repository is present
+  apt_repository:
+    repo="deb https://packagecloud.io/grafana/stable/{{ ansible_os_family | lower }}/ {{ grafana_apt_distribution }} main"
+    update_cache=yes
+    state=present
+  become: yes
+  tags: [ apt ]
+
+- name: ensure grafana is installed
+  apt:
+    name=grafana
+    state=present
+  become: yes
+  tags: installation
+
+- name: ensure integrity of grafana configuration
+  template:
+    src=etc/grafana/grafana.ini.j2
+    dest="{{ grafana_conf_file }}"
+    owner="{{ grafana_user }}"
+    group="{{ grafana_group }}"
+    mode=0644
+  become: yes
+  notify: restart grafana
+  tags: configuration
+
+- name: ensure integrity of grafana configuration
+  template:
+    src=etc/default/grafana-server.j2
+    dest=/etc/default/grafana-server
+    owner="{{ grafana_user }}"
+    group="{{ grafana_group }}"
+    mode=0644
+  become: yes
+  notify: restart grafana
+  tags: configuration
+
+- name: ensure grafana directories ownership and permissions
+  file:
+    path="{{ item }}"
+    owner="{{ grafana_user }}"
+    group="{{ grafana_group }}"
+    mode=0755
+    state=directory
+  become: yes
+  with_items:
+    - grafana_dir_conf
+    - grafana_dir_data
+    - grafana_dir_home
+    - grafana_dir_log
+    - grafana_dir_plugins
+
+- name: ensure grafana is running and enabled to start on boot
+  service:
+    name=grafana-server
+    state=started
+    enabled=yes
+  become: yes
+  tags: service

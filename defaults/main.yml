@@ -1,5 +1,98 @@
 ---
-# file: primogen/defaults/main.yml
+# file: grafana/defaults/main.yml
 #
 # defaults file
 #
+
+grafana_admin_user: admin
+grafana_conf_file: /etc/grafana/grafana.ini
+grafana_dir_conf: /etc/grafana
+grafana_dir_data: /var/lib/grafana
+grafana_dir_home: /usr/share/grafana
+grafana_dir_log: /var/log/grafana
+grafana_dir_plugins: /var/lib/grafana/plugins
+grafana_http_port: 3000
+grafana_group: grafana
+grafana_user: grafana
+
+grafana_database:
+  type: sqlite3
+  host: 127.0.0.1:3306
+  name: grafana
+  user: root
+  password: ''
+  path: grafana.db
+
+grafana_conf_data: |
+  app_mode = development
+
+  [paths]
+  data = {{ grafana_dir_data }}
+  logs = {{ grafana_dir_log }}
+  plugins = {{ grafana_dir_plugins }}
+
+  [server]
+  protocol = http
+  http_port = {{ grafana_http_port }}
+
+  [database]
+  type = {{ grafana_database.type }}
+  host = {{ grafana_database.host }}
+  name = {{ grafana_database.name }}
+  user = {{ grafana_database.user }}
+  password = {{ grafana_database.password }}
+  path = {{ grafana_database.path }}
+
+
+  [session]
+
+  [analytics]
+  check_for_updates = true
+
+  [security]
+  admin_user = {{ grafana_admin_user }}
+  admin_password = {{ grafana_admin_password }}
+
+  [snapshots]
+
+  [users]
+
+  [auth.anonymous]
+
+  [auth.github]
+
+  [auth.google]
+
+  [auth.proxy]
+
+  [auth.basic]
+
+  [auth.ldap]
+
+  [smtp]
+
+  [emails]
+
+  [log]
+  mode = file
+  level = Info
+
+  [log.console]
+
+  [log.file]
+
+  [event_publisher]
+
+  [dashboards.json]
+
+grafana_default:
+  conf_dir: "{{ grafana_dir_conf }}"
+  conf_file: "{{ grafana_conf_file }}"
+  data_dir: "{{ grafana_dir_data }}"
+  grafana_group: "{{ grafana_group }}"
+  grafana_home: "{{ grafana_dir_home }}"
+  grafana_user: "{{ grafana_user }}"
+  log_dir: "{{ grafana_dir_log }}"
+  max_open_files: 10000
+  plugins_dir: "{{ grafana_dir_plugins }}"
+  restart_on_upgrade: 'false'
