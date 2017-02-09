@@ -80,11 +80,11 @@
     state=directory
   become: yes
   with_items:
-    - grafana_dir_conf
-    - grafana_dir_data
-    - grafana_dir_home
-    - grafana_dir_log
-    - grafana_dir_plugins
+    - "{{ grafana_dir_conf }}"
+    - "{{ grafana_dir_data }}"
+    - "{{ grafana_dir_home }}"
+    - "{{ grafana_dir_log }}"
+    - "{{ grafana_dir_plugins }}"
 
 - name: ensure grafana is running and enabled to start on boot
   service:
