@@ -49,24 +49,24 @@
   become: yes
   tags: installation
 
-- name: ensure integrity of grafana configuration
+- name: Ensure integrity of grafana configuration.
   template:
-    src=etc/grafana/grafana.ini.j2
-    dest="{{ grafana_conf_file }}"
-    owner="{{ grafana_user }}"
-    group="{{ grafana_group }}"
-    mode=0644
+    src: 'grafana.ini.j2'
+    dest: "{{ grafana_conf_file }}"
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_group }}"
+    mode: 0644
   become: yes
   notify: restart grafana
   tags: configuration
 
-- name: ensure integrity of grafana configuration
+- name: Ensure integrity of grafana configuration.
   template:
-    src=etc/default/grafana-server.j2
-    dest=/etc/default/grafana-server
-    owner="{{ grafana_user }}"
-    group="{{ grafana_group }}"
-    mode=0644
+    src: 'grafana-server.j2'
+    dest: '/etc/default/grafana-server'
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_group }}"
+    mode: 0644
   become: yes
   notify: restart grafana
   tags: configuration
