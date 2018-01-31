@@ -24,3 +24,5 @@
     - grafana_group
     - grafana_user
     - grafana_database
+    - grafana_pid_file_dir
+    - grafana_pid_file
