@@ -71,6 +71,15 @@
   notify: restart grafana
   tags: configuration
 
+- name: ensure grafana pid directory is present
+  file:
+    path="{{ grafana_pid_dir }}"
+    owner="{{ grafana_user }}"
+    group="{{ grafana_group }}"
+    mode=0755
+    state=directory
+  become: yes
+    
 - name: ensure grafana directories ownership and permissions
   file:
     path="{{ item }}"
@@ -85,6 +94,7 @@
     - "{{ grafana_dir_home }}"
     - "{{ grafana_dir_log }}"
     - "{{ grafana_dir_plugins }}"
+    - "{{ grafana_pid_dir }}"
 
 - name: ensure grafana is running and enabled to start on boot
   service:
