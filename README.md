@@ -43,6 +43,8 @@
 - **grafana_dir_plugins**: the directory where the [Grafana][grafana] plugins will be stored.
 - **grafana_http_port**: the port where the [Grafana][grafana] service will be running.
 - **grafana_group**: the [Grafana][grafana] group.
+- **grafana_pid_file_dir**: directory where PID file will be written to.
+- **grafana_pid_file**: path to PID file.
 - **grafana_user**: the [Grafana][grafana] user.
 
 Unless stated otherwise a default value is provided for each of the variables mentioned above in the `defaults` directory.
