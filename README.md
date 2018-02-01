@@ -58,7 +58,7 @@ None.
     - hosts: servers
       roles:
          - role: ansiblebit.grafana
-
+           grafana_admin_password: 'P4ssw0rd'
 
 ## Tags
 
