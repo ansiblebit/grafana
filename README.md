@@ -30,7 +30,7 @@
 
 ## Role Variables
 
-- **grafana_admin_password**: password for the [Grafana][grafana] administrator account (mandatory).
+- **grafana_admin_password**: password for the [Grafana][grafana] administrator account.
 - **grafana_admin_user**: user name for the [Grafana][grafana] administrator account.
 - **grafana_apt_dependencies**: packages needed to be able to run this playbook or install [Grafana][grafana].
 - **grafana_conf_file**: the file that will contain [Grafana][grafana]'s configuration.
@@ -58,7 +58,6 @@ None.
     - hosts: servers
       roles:
          - role: ansiblebit.grafana
-           grafana_admin_password: 'P4ssw0rd'
 
 ## Tags
 
