@@ -4,6 +4,7 @@
 # defaults file
 #
 
+grafana_admin_password: admin
 grafana_admin_user: admin
 grafana_conf_file: /etc/grafana/grafana.ini
 grafana_dir_conf: /etc/grafana
