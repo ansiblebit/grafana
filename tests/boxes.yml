@@ -2,6 +2,11 @@
 # file: influxdb/tests/boxes.yml
 #
 
+provider:
+  virtualbox:
+    memory: 1024
+    cpus: 1
+
 vagrant:
 
   # Debian
@@ -30,31 +35,63 @@ vagrant:
         memory: 1024
         cpus: 1
 
+  stretch64.vagrant.dev:
+    enabled: false
+    box: debian/stretch64
+    network:
+      name: private_network
+      ip: 192.168.122.3
+
   # Ubuntu
 
+precise32.vagrant.dev:
+    enabled: false
+    box: ubuntu/precise32
+    network:
+      name: private_network
+      ip: 192.168.124.1
+
   precise64.vagrant.dev:
-    enabled: true
+    enabled: false
     box: ubuntu/precise64
     network:
       name: private_network
       ip: 192.168.124.2
 
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
+  trusty32.vagrant.dev:
+    enabled: false
+    box: ubuntu/trusty32
+    network:
+      name: private_network
+      ip: 192.168.124.3
 
   trusty64.vagrant.dev:
-    enabled: true
+    enabled: false
     box: ubuntu/trusty64
     network:
       name: private_network
       ip: 192.168.124.4
 
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
+  vivid32.vagrant.dev:
+    enabled: false
+    box: ubuntu/vivid32
+    network:
+      name: private_network
+      ip: 192.168.124.5
+
+  vivid64.vagrant.dev:
+    enabled: false
+    box: ubuntu/vivid64
+    network:
+      name: private_network
+      ip: 192.168.124.6
+
+  wily64.vagrant.dev:
+    enabled: true
+    box: ubuntu/wily64
+    network:
+      name: private_network
+      ip: 192.168.124.7
 
   xenial64.vagrant.dev:
     enabled: true
@@ -63,19 +100,30 @@ vagrant:
       name: private_network
       ip: 192.168.124.8
 
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
   yakkety64.vagrant.dev:
-    enabled: false
+    enabled: true
     box: ubuntu/yakkety64
     network:
       name: private_network
       ip: 192.168.124.9
 
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
+  artful64.vagrant.dev:
+    enabled: true
+    box: ubuntu/artful64
+    network:
+      name: private_network
+      ip: 192.168.124.10
+
+  bionic64.vagrant.dev:
+    enabled: true
+    box: ubuntu/bionic64
+    network:
+      name: private_network
+      ip: 192.168.124.11
+
+  cosmic64.vagrant.dev:
+    enabled: true
+    box: ubuntu/cosmic64
+    network:
+      name: private_network
+      ip: 192.168.124.12

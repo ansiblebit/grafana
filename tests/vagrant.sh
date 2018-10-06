@@ -3,7 +3,7 @@
 #
 # Bash script to run the test suite against the Vagrant environment.
 #
-# version: 1.2
+# version: 1.8
 #
 # usage:
 #
@@ -15,6 +15,9 @@
 #
 #
 # changelog:
+#
+#   v1.8 : 10 August 2016
+#     - force provisioning
 #
 #   v1.6 : 10 Jun 2016
 #     - exit if USER environment variable is travis
@@ -61,7 +64,7 @@ do
     if [ ! -n "${BOX+1}" ] || [ "${BOX}" = "${VAGRANT_BOX}" ]; then
 
         echo "[INFO] preparing ${VAGRANT_BOX}..."
-        vagrant up ${VAGRANT_BOX} 2> /dev/null
+        vagrant up --provision ${VAGRANT_BOX} 2> /dev/null
         if [ $? -ne 0 ]; then
             # box not enabled
             continue
@@ -74,4 +77,3 @@ do
         vagrant destroy -f ${VAGRANT_BOX}
     fi
 done
-
