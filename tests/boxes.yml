@@ -18,22 +18,12 @@ vagrant:
       name: private_network
       ip: 192.168.122.1
 
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
-
   wheezy64.vagrant.dev:
     enabled: true
     box: debian/wheezy64
     network:
       name: private_network
       ip: 192.168.122.2
-
-    provider:
-      virtualbox:
-        memory: 1024
-        cpus: 1
 
   stretch64.vagrant.dev:
     enabled: false
@@ -44,7 +34,7 @@ vagrant:
 
   # Ubuntu
 
-precise32.vagrant.dev:
+  precise32.vagrant.dev:
     enabled: false
     box: ubuntu/precise32
     network:
