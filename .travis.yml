@@ -4,11 +4,21 @@ sudo: yes
 matrix:
   include:
     - python: 2.7
+      env: TOXENV=py27-ansible27
+    - python: 2.7
+      env: TOXENV=py27-ansible26
+    - python: 2.7
+      env: TOXENV=py27-ansible25
+    - python: 2.7
+      env: TOXENV=py27-ansible24
+    - python: 2.7
+      env: TOXENV=py27-ansible23
+    - python: 2.7
+      env: TOXENV=py27-ansible22
+    - python: 2.7
       env: TOXENV=py27-ansible21
     - python: 2.7
       env: TOXENV=py27-ansible20
-    - python: 2.7
-      env: TOXENV=py27-ansible19
 
 install:
   - pip install tox
@@ -17,12 +27,23 @@ script:
   - tox
 
 notifications:
-    webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  email: false
+  slack:
+    template:
+      - "%{repository_name}@%{branch} %{commit} : [%{build_number}] %{result} "
+      - "%{build_url}"
+      - "'%{commit_subject}' by %{author}"
+      - "%{elapsed_time} : %{duration}"
+      - "%{message}"
+    rooms:
+      secure:xxx
+    on_success: always
+    on_failure: always
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
 
 before_cache:
-  - rm -f ${HOME}/.cache/pip/log/debug.log
+  - "find ${HOME}/.pip -name log -o -name __pycache__ -type d | xargs -I {} rm -rf {}"
 
 cache:
   directories:
-    - ${HOME}/.cache/pip
-
+    - "${HOME}/.cache/pip"
