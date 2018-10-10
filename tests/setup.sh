@@ -29,5 +29,5 @@ test -s ${DIR}/../requirements.yml \
     && ansible-galaxy install \
         --force \
         -r ${DIR}/../requirements.yml \
-        --roles-path=${DIR}/dependencies \
+        --roles-path=${DIR}/roles \
     || true

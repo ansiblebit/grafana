@@ -7,6 +7,7 @@
 
   tasks:
     - raw: sudo apt-get update -qq && sudo apt-get install -qq python2.7
+      changed_when: no
       when: playbook_python2 is defined and
             playbook_python2
 
