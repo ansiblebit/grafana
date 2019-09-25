@@ -10,13 +10,14 @@
 
 [Ansible][ansible] role to setup [Grafana][grafana].
 
-
 ## Tests
 
 | Family | Distribution | Version | Test Status |
 |:-:|:-:|:-:|:-:|
+| Debian | Debian  | Stretch | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Debian  | Jessie  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Debian  | Wheezy  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
+| Debian | Ubuntu  | Bionic  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Xenial  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Trusty  | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Precise | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
@@ -49,11 +50,9 @@
 
 Unless stated otherwise a default value is provided for each of the variables mentioned above in the `defaults` directory.
 
-
 ## Dependencies
 
 None.
-
 
 ## Playbooks
 
@@ -68,7 +67,6 @@ None.
 - **installation**: installation tasks.
 - **validation**: task to validate role variables.
 
-
 ## Test
 
 To run the tests you will need to install:
@@ -78,46 +76,42 @@ To run the tests you will need to install:
 
 To run all tests against all pre-defined OS/distributions * ansible versions:
 
-```
-$ tox
-```
+    ```bash
+    tox
+    ```
 
 To run tests for `trusty64`:
 
-```
-$ cd tests
-$ bash test_idempotence.sh --box trusty64.vagrant.dev
-# log file will be stores under tests/log
-```
+    ```bash
+    cd tests
+    bash test_idempotence.sh --box trusty64.vagrant.dev
+    # log file will be stores under tests/log
+    ```
 
 To perform debugging on a specific environment:
 
-```
-$ cd tests
-$ vagrant up trusty64.vagrant.dev
+    ```bash
+    cd tests
+    vagrant up trusty64.vagrant.dev
 
-# to provision using the test.yml playbook (as many time as you need)
-$ vagrant provision trusty64.vagrant.dev
+    # to provision using the test.yml playbook (as many time as you need)
+    vagrant provision trusty64.vagrant.dev
 
-# to access the Vagrant box
-$ vagrant ssh trusty64.vagrant.dev
-```
-
+    # to access the Vagrant box
+    vagrant ssh trusty64.vagrant.dev
+    ```
 
 ## Links
 
 - [Grafana : Installing on Debian / Ubuntu](http://docs.grafana.org/installation/debian/)
 
-
 ## License
 
 [BSD][license]
 
-
 ## Author Information
 
 - [steenzout][steenzout]
-
 
 [ansible]:      https://www.ansible.com         "Ansible"
 [grafana]:      http://grafana.org              "Grafana"
