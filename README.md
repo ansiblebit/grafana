@@ -23,11 +23,9 @@
 | Debian | Ubuntu  | Precise | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 | Debian | Ubuntu  | Vivid   | [![x86_64](http://img.shields.io/badge/x86_64-passed-006400.svg?style=flat)](#) |
 
-
 ## Requirements
 
 - ansible >= 1.9.6
-
 
 ## Role Variables
 
@@ -80,11 +78,14 @@ To run all tests against all pre-defined OS/distributions * ansible versions:
     tox
     ```
 
-To run tests for `trusty64`:
+To run tests for `bionic64`:
 
     ```bash
+    tox -e py36-ansible28 -- --box bionic64.vagrant.dev
+
+    # or
     cd tests
-    bash test_idempotence.sh --box trusty64.vagrant.dev
+    bash test_idempotence.sh --box bionic64.vagrant.dev
     # log file will be stores under tests/log
     ```
 
@@ -92,13 +93,13 @@ To perform debugging on a specific environment:
 
     ```bash
     cd tests
-    vagrant up trusty64.vagrant.dev
+    vagrant up bionic64.vagrant.dev
 
     # to provision using the test.yml playbook (as many time as you need)
-    vagrant provision trusty64.vagrant.dev
+    vagrant provision bionic64.vagrant.dev
 
     # to access the Vagrant box
-    vagrant ssh trusty64.vagrant.dev
+    vagrant ssh bionic64.vagrant.dev
     ```
 
 ## Links
