@@ -4,6 +4,7 @@
 # Ubuntu variables.
 #
 
-grafana_apt_dependencies: []
+grafana_apt_dependencies:
+  - software-properties-common
 
 grafana_apt_distribution: wheezy

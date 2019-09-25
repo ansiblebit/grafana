@@ -6,5 +6,6 @@
 
 grafana_apt_dependencies:
   - apt-transport-https
+  - software-properties-common
 
 grafana_apt_distribution: "{{ ansible_distribution_release | lower }}"
